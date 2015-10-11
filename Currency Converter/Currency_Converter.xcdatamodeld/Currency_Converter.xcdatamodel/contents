@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="15A235d" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Conversion" representedClassName="Conversion" syncable="YES">
+        <attribute name="association" attributeType="String" syncable="YES"/>
+        <attribute name="baseValue" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="eurValue" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gbpValue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="inrValue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Conversion" positionX="-63" positionY="-18" width="128" height="120"/>
+    </elements>
+</model>
