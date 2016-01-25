@@ -280,7 +280,7 @@
                                     <color key="titleShadowColor" red="0.60115131580000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="allClear:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lBQ-67-ttI"/>
+                                    <action selector="setDivision:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ieW-iM-itC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEb-pZ-PBV">
@@ -304,7 +304,7 @@
                                     <color key="titleShadowColor" red="0.60115131580000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteValue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wuj-5b-MhG"/>
+                                    <action selector="setMultiplication:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5Eq-2V-AOU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MC6-mH-whs">
@@ -316,7 +316,7 @@
                                     <color key="titleShadowColor" red="0.60115131580000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteValue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="81t-SL-PVG"/>
+                                    <action selector="setSubtraction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Yfj-Wa-KeF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jS-6e-b3N">
@@ -328,7 +328,7 @@
                                     <color key="titleShadowColor" red="0.60115131580000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteValue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9He-3D-mcd"/>
+                                    <action selector="setAddition:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xhU-od-yJ4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgR-qG-PUK">
@@ -340,14 +340,14 @@
                                     <color key="titleShadowColor" red="0.60115131580000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteValue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UvI-5d-MZh"/>
+                                    <action selector="calculateResult:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="g4R-hF-LeV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veR-Rz-vEl">
                                 <rect key="frame" x="442" y="322" width="64" height="139"/>
                                 <color key="backgroundColor" red="0.0" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                <state key="normal" title="SAVE">
+                                <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -389,7 +389,7 @@
                                     <color key="titleShadowColor" red="0.60115131580000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteValue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KLY-Dl-sw7"/>
+                                    <action selector="doConvert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="j04-d2-Mxj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cge-iR-Ybx">
@@ -566,6 +566,10 @@
                         <outlet property="inrOutputLabel" destination="D8S-Bj-ZyC" id="SyZ-Rs-DDH"/>
                         <outlet property="refresh" destination="she-xk-2U8" id="6U2-2q-AVR"/>
                         <outlet property="usdInputLabel" destination="qtj-7h-QD7" id="LNl-hv-fgC"/>
+                        <outletCollection property="operators" destination="MC6-mH-whs" collectionClass="NSMutableArray" id="Jhq-KE-CCg"/>
+                        <outletCollection property="operators" destination="47Z-5d-teP" collectionClass="NSMutableArray" id="Bt4-J3-Baz"/>
+                        <outletCollection property="operators" destination="dDS-ub-fbC" collectionClass="NSMutableArray" id="5Eb-WG-vvg"/>
+                        <outletCollection property="operators" destination="8jS-6e-b3N" collectionClass="NSMutableArray" id="zL5-0o-Xyd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

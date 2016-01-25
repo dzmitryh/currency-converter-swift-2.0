@@ -11,6 +11,12 @@ import UIKit
 class ConversionViewController: UIViewController {
 
     @IBOutlet var refresh: UIButton!
+    
+    @IBOutlet weak var divisionButton: UIButton!
+    @IBOutlet weak var multiplicationButton: UIButton!
+    @IBOutlet weak var subtractionButton: UIButton!
+    @IBOutlet weak var additionButton: UIButton!
+    
     @IBOutlet var activityindicator: UIActivityIndicatorView!
     @IBOutlet var usdInputLabel: UILabel!
     @IBOutlet var eurOutputLabel: UILabel!
@@ -23,6 +29,7 @@ class ConversionViewController: UIViewController {
        return NSUserDefaults.standardUserDefaults()
     }()
     
+    @IBOutlet var operators: [UIButton]?
     
     override func viewDidLoad() {
         makeCurrencyQuoteRequest()
@@ -109,7 +116,7 @@ class ConversionViewController: UIViewController {
             else {
                 usdInputLabel.text = "\(usdInputLabel.text!)\(sender.titleLabel!.text!)"
             }
-            convertToCurrencies()
+//            convertToCurrencies()
         }
         else {
             displayAlert("Currently Downloading New Rates", message: "Please wait a moment before initating any conversion.")
@@ -135,6 +142,7 @@ class ConversionViewController: UIViewController {
             decimalDisabled = false
             convertToCurrencies()
         }
+        clearOperatorButtonBorders()
     }
     
     @IBAction func deleteValue(sender: UIButton) {
@@ -153,7 +161,7 @@ class ConversionViewController: UIViewController {
                 if lastChar == "." {
                     decimalDisabled = false
                 }
-                convertToCurrencies()
+//                convertToCurrencies()
             }
         }
         else {
@@ -182,6 +190,50 @@ class ConversionViewController: UIViewController {
         activityindicator.hidden = false
         activityindicator.startAnimating()
         refresh.enabled = false
+    }
+    
+    @IBAction func doConvert(sender: AnyObject) {
+        convertToCurrencies()
+    }
+    
+    @IBAction func setDivision(sender: AnyObject) {
+        clearOperatorButtonBorders()
+        highlightButtonBorder(sender)
+    }
+    
+    @IBAction func setMultiplication(sender: AnyObject) {
+        clearOperatorButtonBorders()
+        highlightButtonBorder(sender)
+    }
+    
+    @IBAction func setSubtraction(sender: AnyObject) {
+        clearOperatorButtonBorders()
+        highlightButtonBorder(sender)
+    }
+    
+    @IBAction func setAddition(sender: AnyObject) {
+        clearOperatorButtonBorders()
+        highlightButtonBorder(sender)
+    }
+    
+    @IBAction func calculateResult(sender: AnyObject) {
+        clearOperatorButtonBorders()
+    }
+    
+    func clearOperatorButtonBorders() {
+        guard let calcOperators = operators else {
+            print("calculator operators aren't in place!")
+            return
+        }
+        
+        for calcOperator in calcOperators {
+            calcOperator.layer.borderWidth = 0
+        }
+    }
+    
+    func highlightButtonBorder(sender: AnyObject) {
+        sender.layer.borderWidth = 2.0
+        sender.layer.borderColor = UIColor.grayColor().CGColor
     }
     
     func convertStringToFloat(string: String) -> Float {
