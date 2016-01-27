@@ -2,13 +2,33 @@
 //  ViewController.swift
 //  Currency Converter
 //
-//  Created by Mayank Kumar on 7/28/15.
-//  Copyright (c) 2015 Mayank Kumar. All rights reserved.
+//  Created by Dzmitry Hubin on 1/27/16.
+//
+//  Copyright (c) 2015 Dzmitry Hubin. All rights reserved.
 //
 
 import UIKit
 
 class ConversionViewController: UIViewController {
+    
+    @IBOutlet var refresh: UIButton!
+    @IBOutlet var activityindicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var divisionButton: UIButton!
+    @IBOutlet weak var multiplicationButton: UIButton!
+    @IBOutlet weak var subtractionButton: UIButton!
+    @IBOutlet weak var additionButton: UIButton!
+    @IBOutlet var operators: [UIButton]?
+    
+    
+    @IBOutlet var usdInputLabel: UILabel!
+    @IBOutlet var eurOutputLabel: UILabel!
+    @IBOutlet var gbpOutputLabel: UILabel!
+    @IBOutlet var inrOutputLabel: UILabel!
+    
+    var defaults = {
+        return NSUserDefaults.standardUserDefaults()
+    }()
     
     enum Operator {
         case Plus
@@ -17,29 +37,13 @@ class ConversionViewController: UIViewController {
         case Divide
     }
 
-    @IBOutlet var refresh: UIButton!
-    
-    @IBOutlet weak var divisionButton: UIButton!
-    @IBOutlet weak var multiplicationButton: UIButton!
-    @IBOutlet weak var subtractionButton: UIButton!
-    @IBOutlet weak var additionButton: UIButton!
-    
-    @IBOutlet var activityindicator: UIActivityIndicatorView!
-    @IBOutlet var usdInputLabel: UILabel!
-    @IBOutlet var eurOutputLabel: UILabel!
-    @IBOutlet var gbpOutputLabel: UILabel!
-    @IBOutlet var inrOutputLabel: UILabel!
     var quotes: [String:AnyObject]!
     var decimalDisabled = false
     var enableConversion = false
-    var defaults = {
-       return NSUserDefaults.standardUserDefaults()
-    }()
-    
-    @IBOutlet var operators: [UIButton]?
     
     var firstNumber: Float?
     var secondNumber:Float?
+    var tempResult: Float?
     var operation: Operator?
     
     override func viewDidLoad() {
@@ -120,7 +124,9 @@ class ConversionViewController: UIViewController {
     }
     
     @IBAction func appendDigit(sender: UIButton) {
+        
         if enableConversion {
+            
             if usdInputLabel.text == "0" {
                 
                 usdInputLabel.text = sender.titleLabel!.text!
@@ -136,22 +142,25 @@ class ConversionViewController: UIViewController {
                 if operation == nil {
                     usdInputLabel.text = "\(usdInputLabel.text!)\(sender.titleLabel!.text!)"
                     firstNumber = (usdInputLabel.text! as NSString).floatValue
-                } else if secondNumber == nil {
+                    
+                } else if tempResult != nil || secondNumber == nil {
                     usdInputLabel.text = sender.titleLabel!.text!
                     secondNumber = (usdInputLabel.text! as NSString).floatValue
+                    
                 } else {
                     usdInputLabel.text = "\(usdInputLabel.text!)\(sender.titleLabel!.text!)"
                     secondNumber = (usdInputLabel.text! as NSString).floatValue
                 }
                 
             }
-//            convertToCurrencies()
+
         } else {
             displayAlert("Currently Downloading New Rates", message: "Please wait a moment before initating any conversion.")
             if sender.titleLabel?.text == "." {
                 decimalDisabled = false
             }
         }
+        
     }
     
     @IBAction func disableDecimalOnFirstUse(sender: UIButton) {
@@ -174,6 +183,7 @@ class ConversionViewController: UIViewController {
         operation = nil
         firstNumber = nil
         secondNumber = nil
+        tempResult = nil
         
     }
     
@@ -193,7 +203,6 @@ class ConversionViewController: UIViewController {
                 if lastChar == "." {
                     decimalDisabled = false
                 }
-//                convertToCurrencies()
             }
         }
         else {
@@ -249,40 +258,51 @@ class ConversionViewController: UIViewController {
     @IBAction func setAddition(sender: AnyObject) {
         clearOperatorButtonBorders()
         highlightButtonBorder(sender)
-        operation = .Plus
-    }
+        operation = .Plus    }
     
     @IBAction func calculateResult(sender: AnyObject) {
         clearOperatorButtonBorders()
         
-        if let operationVar = operation, valueOne = firstNumber, valueTwo = secondNumber {
+        if let tempResultVar = tempResult, operationVar = operation, valueTwo = secondNumber, var valueOne = firstNumber {
             
-            let res: Float;
+            valueOne = tempResultVar
+            // do the calculation
+            doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
             
-            switch operationVar {
-                
-            case Operator.Plus:
-                res = valueOne + valueTwo
-                
-            case Operator.Minus:
-                res = valueOne - valueTwo
-                
-            case Operator.Multiply:
-                res = valueOne * valueTwo
-                
-            case Operator.Divide:
-                res = valueOne / valueTwo
-                
-            }
-            
-            if res % 1 != 0 {
-                usdInputLabel.text = res.description
-            } else {
-                usdInputLabel.text = String(format: "%.0f", res)
-            }
-
-            operation = nil
+        } else if let operationVar = operation, valueTwo = secondNumber, valueOne = firstNumber {
+            // do the calculation
+            doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
         }
+    }
+    
+    func doCalculation(operation: Operator, valueOne: Float, valueTwo: Float) {
+       
+        let res: Float;
+        
+        switch operation {
+            
+        case Operator.Plus:
+            res = valueOne + valueTwo
+            
+        case Operator.Minus:
+            res = valueOne - valueTwo
+            
+        case Operator.Multiply:
+            res = valueOne * valueTwo
+            
+        case Operator.Divide:
+            res = valueOne / valueTwo
+            
+        }
+        
+        tempResult = res
+        
+        if res % 1 != 0 {
+            usdInputLabel.text = res.description
+        } else {
+            usdInputLabel.text = String(format: "%.0f", res)
+        }
+        
     }
     
     func clearOperatorButtonBorders() {

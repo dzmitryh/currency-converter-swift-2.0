@@ -1,9 +1,11 @@
 //
 //  CurrencyLayer.swift
+
 //  Currency Converter
 //
-//  Created by Mayank Kumar on 7/28/15.
-//  Copyright (c) 2015 Mayank Kumar. All rights reserved.
+//  Created by Dzmitry Hubin on 1/27/16.
+//
+//  Copyright (c) 2015 Dzmitry Hubin. All rights reserved.
 //
 
 import Foundation

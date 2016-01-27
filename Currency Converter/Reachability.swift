@@ -1,4 +1,8 @@
-//Obtained from StackOverflow
+//  Reachability
+//
+//  Created by Dzmitry Hubin on 1/27/16.
+//
+//  Copyright (c) 2015 Dzmitry Hubin. All rights reserved.
 
 import Foundation
 public class Reachability {
