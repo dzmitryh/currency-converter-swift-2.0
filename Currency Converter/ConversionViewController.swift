@@ -70,9 +70,14 @@ class ConversionViewController: UIViewController {
                 }
                 
                 //Persist quotes using NSUserDefaults
-                self.saveQuotesToUserDefaults(self.quotes["USDEUR"] as! Float, key: "EUR")
-                self.saveQuotesToUserDefaults(self.quotes["USDGBP"] as! Float, key: "GBP")
-                self.saveQuotesToUserDefaults(self.quotes["USDINR"] as! Float, key: "INR")
+                //TODO
+//                self.saveQuotesToUserDefaults(self.quotes["USDEUR"] as! Float, key: "EUR")
+//                self.saveQuotesToUserDefaults(self.quotes["USDGBP"] as! Float, key: "GBP")
+//                self.saveQuotesToUserDefaults(self.quotes["USDINR"] as! Float, key: "INR")
+                
+                self.saveQuotesToUserDefaults(self.quotes["EUR"] as! Float, key: "EUR")
+                self.saveQuotesToUserDefaults(self.quotes["USD"] as! Float, key: "USD")
+                self.saveQuotesToUserDefaults(self.quotes["RUB"] as! Float, key: "RUB")
             }
             else {
                 dispatch_async(dispatch_get_main_queue()) {
@@ -81,9 +86,13 @@ class ConversionViewController: UIViewController {
                     self.refresh.enabled = true
                 }
                 self.quotes = [
-                    "USDEUR": self.accessQuotesFromUserDefaults("EUR"),
-                    "USDGBP": self.accessQuotesFromUserDefaults("GBP"),
-                    "USDINR": self.accessQuotesFromUserDefaults("INR")
+                    //TODO
+//                    "USDEUR": self.accessQuotesFromUserDefaults("EUR"),
+//                    "USDGBP": self.accessQuotesFromUserDefaults("GBP"),
+//                    "USDINR": self.accessQuotesFromUserDefaults("INR")
+                    "BRLEUR": self.accessQuotesFromUserDefaults("EUR"),
+                    "BRLUSD": self.accessQuotesFromUserDefaults("USD"),
+                    "BRLRUB": self.accessQuotesFromUserDefaults("RUB")
                 ]
             }
             self.enableConversion = true
@@ -100,9 +109,15 @@ class ConversionViewController: UIViewController {
     }
     
     func removeAllKeysForUserDefaults() {
+        //TODO
+//        defaults.removeObjectForKey("EUR")
+//        defaults.removeObjectForKey("GBP")
+//        defaults.removeObjectForKey("INR")
+
         defaults.removeObjectForKey("EUR")
-        defaults.removeObjectForKey("GBP")
-        defaults.removeObjectForKey("INR")
+        defaults.removeObjectForKey("USD")
+        defaults.removeObjectForKey("RUB")
+
     }
     
     func accessQuotesFromUserDefaults(key: String) -> Float {
@@ -112,11 +127,18 @@ class ConversionViewController: UIViewController {
         }
         else {
             switch(key) {
-                case "GBP": return 0.6427
+                //TODO
+//                case "GBP": return 0.6427
+//                
+//                case "EUR": return 0.902
+//                
+//                case "INR": return 64.2234
                 
-                case "EUR": return 0.902
-                
-                case "INR": return 64.2234
+                case "EUR": return 0.2249
+                    
+                case "USD": return 0.24372
+                    
+                case "RUB": return 19.515
                 
                 default: return 0
             }
@@ -327,13 +349,16 @@ class ConversionViewController: UIViewController {
     
     func convertToCurrencies() {
         let usdVal = (usdInputLabel.text! as NSString).floatValue
-        let euroVal = usdVal * (quotes["USDEUR"] as! Float)
+//        let euroVal = usdVal * (quotes["USDEUR"] as! Float)
+        let euroVal = usdVal * (quotes["EUR"] as! Float)
         eurOutputLabel.text = String(format: "%.2f", euroVal)
         
-        let gbpVal = usdVal * (quotes["USDGBP"] as! Float)
+//        let gbpVal = usdVal * (quotes["USDGBP"] as! Float)
+        let gbpVal = usdVal * (quotes["USD"] as! Float)
         gbpOutputLabel.text = String(format: "%.2f", gbpVal)
         
-        let inrVal = usdVal * (quotes["USDINR"] as! Float)
+//        let inrVal = usdVal * (quotes["USDINR"] as! Float)
+        let inrVal = usdVal * (quotes["RUB"] as! Float)
         inrOutputLabel.text = String(format: "%.2f", inrVal)
     }
     
