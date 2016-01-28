@@ -21,6 +21,7 @@
 		A8EF6B4F1B693CFA004A724D /* ConversionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EF6B4E1B693CFA004A724D /* ConversionCell.swift */; };
 		A8EF6B511B69446E004A724D /* ConversionHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EF6B501B69446E004A724D /* ConversionHistoryViewController.swift */; };
 		A8EF6B531B696053004A724D /* ConversionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EF6B521B696053004A724D /* ConversionDetailViewController.swift */; };
+		ACE5B1EE1C5A24E2001FCB4E /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5B1ED1C5A24E2001FCB4E /* Calculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		A8EF6B4E1B693CFA004A724D /* ConversionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionCell.swift; sourceTree = "<group>"; };
 		A8EF6B501B69446E004A724D /* ConversionHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionHistoryViewController.swift; sourceTree = "<group>"; };
 		A8EF6B521B696053004A724D /* ConversionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionDetailViewController.swift; sourceTree = "<group>"; };
+		ACE5B1ED1C5A24E2001FCB4E /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				A81DF5301B678B7D00CC656B /* CurrencyLayer.swift */,
 				A88B421E1B69006300DEFEAE /* Reachability.swift */,
 				A81DF50D1B67891200CC656B /* Currency_Converter.xcdatamodeld */,
+				ACE5B1ED1C5A24E2001FCB4E /* Calculator.swift */,
 			);
 			name = "Data & Networking";
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				A81DF5111B67891200CC656B /* ConversionViewController.swift in Sources */,
 				A81DF52F1B678A5900CC656B /* Conversion.swift in Sources */,
 				A8EF6B4D1B6930C0004A724D /* AssociationViewController.swift in Sources */,
+				ACE5B1EE1C5A24E2001FCB4E /* Calculator.swift in Sources */,
 				A88B421F1B69006300DEFEAE /* Reachability.swift in Sources */,
 				A81DF5311B678B7D00CC656B /* CurrencyLayer.swift in Sources */,
 				A8EF6B4F1B693CFA004A724D /* ConversionCell.swift in Sources */,

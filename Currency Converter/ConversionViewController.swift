@@ -30,21 +30,25 @@ class ConversionViewController: UIViewController {
         return NSUserDefaults.standardUserDefaults()
     }()
     
-    enum Operator {
-        case Plus
-        case Minus
-        case Multiply
-        case Divide
-    }
-
     var quotes: [String:AnyObject]!
     var decimalDisabled = false
     var enableConversion = false
+
+    var calculator: Calculator
     
-    var firstNumber: Float?
-    var secondNumber:Float?
-    var tempResult: Float?
-    var operation: Operator?
+//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+//        self.calculator = Calculator()
+//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+//    }
+
+    required init?(coder aDecoder: NSCoder) {
+        self.calculator = Calculator()
+        super.init(coder: aDecoder)
+    }
+    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func viewDidLoad() {
         makeCurrencyQuoteRequest()
@@ -153,25 +157,25 @@ class ConversionViewController: UIViewController {
                 
                 usdInputLabel.text = sender.titleLabel!.text!
                 
-                if operation == nil {
-                    firstNumber = (usdInputLabel.text! as NSString).floatValue
+                if calculator.operation == nil {
+                    calculator.firstNumber = (usdInputLabel.text! as NSString).floatValue
                 } else {
-                    secondNumber = (usdInputLabel.text! as NSString).floatValue
+                    calculator.secondNumber = (usdInputLabel.text! as NSString).floatValue
                 }
                 
             } else {
                 
-                if operation == nil {
+                if calculator.operation == nil {
                     usdInputLabel.text = "\(usdInputLabel.text!)\(sender.titleLabel!.text!)"
-                    firstNumber = (usdInputLabel.text! as NSString).floatValue
+                    calculator.firstNumber = (usdInputLabel.text! as NSString).floatValue
                     
-                } else if tempResult != nil || secondNumber == nil {
+                } else if calculator.tempResult != nil || calculator.secondNumber == nil {
                     usdInputLabel.text = sender.titleLabel!.text!
-                    secondNumber = (usdInputLabel.text! as NSString).floatValue
+                    calculator.secondNumber = (usdInputLabel.text! as NSString).floatValue
                     
                 } else {
                     usdInputLabel.text = "\(usdInputLabel.text!)\(sender.titleLabel!.text!)"
-                    secondNumber = (usdInputLabel.text! as NSString).floatValue
+                    calculator.secondNumber = (usdInputLabel.text! as NSString).floatValue
                 }
                 
             }
@@ -202,10 +206,10 @@ class ConversionViewController: UIViewController {
             convertToCurrencies()
         }
         clearOperatorButtonBorders()
-        operation = nil
-        firstNumber = nil
-        secondNumber = nil
-        tempResult = nil
+        calculator.operation = nil
+        calculator.firstNumber = nil
+        calculator.secondNumber = nil
+        calculator.tempResult = nil
         
     }
     
@@ -262,69 +266,54 @@ class ConversionViewController: UIViewController {
     @IBAction func setDivision(sender: AnyObject) {
         clearOperatorButtonBorders()
         highlightButtonBorder(sender)
-        operation = .Divide
+        calculator.operation = .Divide
     }
     
     @IBAction func setMultiplication(sender: AnyObject) {
         clearOperatorButtonBorders()
         highlightButtonBorder(sender)
-        operation = .Multiply
+        calculator.operation = .Multiply
     }
     
     @IBAction func setSubtraction(sender: AnyObject) {
         clearOperatorButtonBorders()
         highlightButtonBorder(sender)
-        operation = .Minus
+        calculator.operation = .Minus
     }
     
     @IBAction func setAddition(sender: AnyObject) {
         clearOperatorButtonBorders()
         highlightButtonBorder(sender)
-        operation = .Plus    }
+        calculator.operation = .Plus
+    }
     
     @IBAction func calculateResult(sender: AnyObject) {
         clearOperatorButtonBorders()
         
-        if let tempResultVar = tempResult, operationVar = operation, valueTwo = secondNumber, var valueOne = firstNumber {
+        if let tempResultVar = calculator.tempResult, operationVar = calculator.operation, valueTwo = calculator.secondNumber, var valueOne = calculator.firstNumber {
             
             valueOne = tempResultVar
             // do the calculation
-            doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
+            let result = calculator.doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
+            calculator.tempResult = result
+            assignInputLableNewValue(result)
+//            doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
             
-        } else if let operationVar = operation, valueTwo = secondNumber, valueOne = firstNumber {
+        } else if let operationVar = calculator.operation, valueTwo = calculator.secondNumber, valueOne = calculator.firstNumber {
             // do the calculation
-            doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
+            let result = calculator.doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
+            calculator.tempResult = result
+            assignInputLableNewValue(result)
+//            doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
         }
     }
     
-    func doCalculation(operation: Operator, valueOne: Float, valueTwo: Float) {
-       
-        let res: Float;
-        
-        switch operation {
-            
-        case Operator.Plus:
-            res = valueOne + valueTwo
-            
-        case Operator.Minus:
-            res = valueOne - valueTwo
-            
-        case Operator.Multiply:
-            res = valueOne * valueTwo
-            
-        case Operator.Divide:
-            res = valueOne / valueTwo
-            
-        }
-        
-        tempResult = res
-        
-        if res % 1 != 0 {
-            usdInputLabel.text = res.description
+    func assignInputLableNewValue(result: Float) {
+        if result % 1 != 0 {
+            usdInputLabel.text = result.description
         } else {
-            usdInputLabel.text = String(format: "%.0f", res)
+            usdInputLabel.text = String(format: "%.0f", result)
         }
-        
     }
     
     func clearOperatorButtonBorders() {
@@ -361,7 +350,6 @@ class ConversionViewController: UIViewController {
         let inrVal = usdVal * (quotes["RUB"] as! Float)
         inrOutputLabel.text = String(format: "%.2f", inrVal)
     }
-    
     
 }
 
