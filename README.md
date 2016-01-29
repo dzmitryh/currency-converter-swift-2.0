@@ -10,6 +10,8 @@ My customization adds calculator opportunities to the forked functionality.
 
 Check out some screens:
 
+![alt tag](https://github.com/dzmitryh/currency-converter-swift-2.0/blob/master/Currency%20Converter/Images.xcassets/currency_converter.imageset/currency_converter.png)
+
 
 
 
