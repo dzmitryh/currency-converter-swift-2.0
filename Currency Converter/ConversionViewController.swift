@@ -26,6 +26,8 @@ class ConversionViewController: UIViewController {
     @IBOutlet var gbpOutputLabel: UILabel!
     @IBOutlet var inrOutputLabel: UILabel!
     
+    @IBOutlet weak var changeInputCurrencyLabel: UILabel!
+    
     var defaults = {
         return NSUserDefaults.standardUserDefaults()
     }()
@@ -54,6 +56,9 @@ class ConversionViewController: UIViewController {
         makeCurrencyQuoteRequest()
         activityindicator.startAnimating()
         refresh.enabled = false
+        let changeInputCurrencyRecognizer = UITapGestureRecognizer(target: self, action: "handleInputCurrencyChangeTap:")
+        self.changeInputCurrencyLabel.userInteractionEnabled = true
+        self.changeInputCurrencyLabel.addGestureRecognizer(changeInputCurrencyRecognizer)
     }
     
     func displayAlert(title: String, message: String) {
@@ -250,6 +255,15 @@ class ConversionViewController: UIViewController {
         else {
             displayAlert("No Conversion Made", message: "You cannot save because you have not made a conversion.")
         }
+    }
+    
+    func handleInputCurrencyChangeTap(gestureRecognizer: UIGestureRecognizer) {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewControllerWithIdentifier("next")
+//        self.presentViewController(vc, animated: true, completion: nil)
+        print("change currency label has been clicked!")
+        let controller = storyboard?.instantiateViewControllerWithIdentifier("CurrencyPicker") as! CurrencyPickerViewController
+        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     @IBAction func refreshRates(sender: UIButton) {

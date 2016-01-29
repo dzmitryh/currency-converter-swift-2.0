@@ -16,6 +16,7 @@ class CurrencyLayer {
         if Reachability.isConnectedToNetwork() {
 //            let urlString = "http://apilayer.net/api/live?access_key=5edef452618563a7e2c850adb6f428e7&currencies=EUR,GBP,INR&format=1"
 //            http://api.fixer.io/latest?base=BRL&symbols=USD,EUR,RUB
+            //TODO change to requested.
             let urlString = "http://api.fixer.io/latest?base=BRL&symbols=USD,EUR,RUB"
             let session = NSURLSession.sharedSession()
             let url = NSURL(string: urlString)!
