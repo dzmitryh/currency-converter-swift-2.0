@@ -26,7 +26,7 @@ class ConversionViewController: UIViewController {
     @IBOutlet var gbpOutputLabel: UILabel!
     @IBOutlet var inrOutputLabel: UILabel!
     
-    @IBOutlet weak var changeInputCurrencyLabel: UILabel!
+//    @IBOutlet weak var changeInputCurrencyLabel: UILabel!
     
     var defaults = {
         return NSUserDefaults.standardUserDefaults()
@@ -56,9 +56,9 @@ class ConversionViewController: UIViewController {
         makeCurrencyQuoteRequest()
         activityindicator.startAnimating()
         refresh.enabled = false
-        let changeInputCurrencyRecognizer = UITapGestureRecognizer(target: self, action: "handleInputCurrencyChangeTap:")
-        self.changeInputCurrencyLabel.userInteractionEnabled = true
-        self.changeInputCurrencyLabel.addGestureRecognizer(changeInputCurrencyRecognizer)
+//        let changeInputCurrencyRecognizer = UITapGestureRecognizer(target: self, action: "handleInputCurrencyChangeTap:")
+//        self.changeInputCurrencyLabel.userInteractionEnabled = true
+//        self.changeInputCurrencyLabel.addGestureRecognizer(changeInputCurrencyRecognizer)
     }
     
     func displayAlert(title: String, message: String) {
@@ -84,9 +84,10 @@ class ConversionViewController: UIViewController {
 //                self.saveQuotesToUserDefaults(self.quotes["USDGBP"] as! Float, key: "GBP")
 //                self.saveQuotesToUserDefaults(self.quotes["USDINR"] as! Float, key: "INR")
                 
-                self.saveQuotesToUserDefaults(self.quotes["EUR"] as! Float, key: "EUR")
-                self.saveQuotesToUserDefaults(self.quotes["USD"] as! Float, key: "USD")
-                self.saveQuotesToUserDefaults(self.quotes["RUB"] as! Float, key: "RUB")
+//                self.saveQuotesToUserDefaults(self.quotes["EUR"] as! Float, key: "EUR")
+//                self.saveQuotesToUserDefaults(self.quotes["USD"] as! Float, key: "USD")
+//                self.saveQuotesToUserDefaults(self.quotes["RUB"] as! Float, key: "RUB")
+                self.saveQuotesToUserDefaults(self.quotes)
             }
             else {
                 dispatch_async(dispatch_get_main_queue()) {
@@ -113,8 +114,10 @@ class ConversionViewController: UIViewController {
         self.activityindicator.hidden = true
     }
     
-    func saveQuotesToUserDefaults(value: Float, key: String) {
-        defaults.setFloat(value, forKey: key)
+//    func saveQuotesToUserDefaults(value: Float, key: String) {
+    func saveQuotesToUserDefaults(quotes: [String:AnyObject]) {
+//        defaults.setFloat(value, forKey: key)
+        defaults.registerDefaults(quotes)
     }
     
     func removeAllKeysForUserDefaults() {
@@ -263,6 +266,14 @@ class ConversionViewController: UIViewController {
 //        self.presentViewController(vc, animated: true, completion: nil)
         print("change currency label has been clicked!")
         let controller = storyboard?.instantiateViewControllerWithIdentifier("CurrencyPicker") as! CurrencyPickerViewController
+//        controller.quotes = self.quotes
+        
+//        var currencyArr = [Currency]()
+//        for (key, value) in self.quotes {
+//            currencyArr.append(Currency(name: key, rate: value))
+//        }
+        
+        controller.quotes = self.quotes.map { Currency(name: "\($0)", rate: "\($1)") }
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
@@ -357,8 +368,8 @@ class ConversionViewController: UIViewController {
         eurOutputLabel.text = String(format: "%.2f", euroVal)
         
 //        let gbpVal = usdVal * (quotes["USDGBP"] as! Float)
-        let gbpVal = usdVal * (quotes["USD"] as! Float)
-        gbpOutputLabel.text = String(format: "%.2f", gbpVal)
+//        let gbpVal = usdVal * (quotes["USD"] as! Float)
+//        gbpOutputLabel.text = String(format: "%.2f", gbpVal)
         
 //        let inrVal = usdVal * (quotes["USDINR"] as! Float)
         let inrVal = usdVal * (quotes["RUB"] as! Float)

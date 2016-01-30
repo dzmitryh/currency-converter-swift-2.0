@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010118541C5C0A2A008E45A6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010118531C5C0A2A008E45A6 /* Currency.swift */; };
 		A81DF50C1B67891200CC656B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DF50B1B67891200CC656B /* AppDelegate.swift */; };
 		A81DF50F1B67891200CC656B /* Currency_Converter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A81DF50D1B67891200CC656B /* Currency_Converter.xcdatamodeld */; };
 		A81DF5111B67891200CC656B /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DF5101B67891200CC656B /* ConversionViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010118531C5C0A2A008E45A6 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		A81DF5061B67891200CC656B /* Currency Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency Converter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A81DF50A1B67891200CC656B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A81DF50B1B67891200CC656B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				A88B421E1B69006300DEFEAE /* Reachability.swift */,
 				A81DF50D1B67891200CC656B /* Currency_Converter.xcdatamodeld */,
 				ACE5B1ED1C5A24E2001FCB4E /* Calculator.swift */,
+				010118531C5C0A2A008E45A6 /* Currency.swift */,
 			);
 			name = "Data & Networking";
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				ACE5B1F21C5BA636001FCB4E /* CurrencyPickerViewController.swift in Sources */,
 				A81DF5311B678B7D00CC656B /* CurrencyLayer.swift in Sources */,
 				A8EF6B4F1B693CFA004A724D /* ConversionCell.swift in Sources */,
+				010118541C5C0A2A008E45A6 /* Currency.swift in Sources */,
 				A81DF50C1B67891200CC656B /* AppDelegate.swift in Sources */,
 				A8EF6B531B696053004A724D /* ConversionDetailViewController.swift in Sources */,
 				A8EF6B511B69446E004A724D /* ConversionHistoryViewController.swift in Sources */,
