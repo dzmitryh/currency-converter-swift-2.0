@@ -61,14 +61,32 @@ class ConversionViewController: UIViewController {
 //        self.changeInputCurrencyLabel.addGestureRecognizer(changeInputCurrencyRecognizer)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowCurrencyChange" {
+//            let changeCurrencyVC = segue.destinationViewController as? CurrencyPickerViewController
+//            let navigationVC = segue.destinationViewController as? UINavigationController
+//            let changeCurrencyVC = navigationVC?.viewControllers.first as? CurrencyPickerViewController
+            let changeCurrencyVC = segue.destinationViewController as? CurrencyPickerViewController
+            changeCurrencyVC?.quotes = self.quotes.map { Currency(name: "\($0)", rate: "\($1)") }.sort { $0.name < $1.name }
+        }
+    }
+    
+    @IBAction func unwindToConvertionController(sender: UIStoryboardSegue) {
+        print("it works!")
+        if let bc = (sender.sourceViewController as? CurrencyPickerViewController)?.baseCurrency    {
+            self.makeCurrencyQuoteRequest(bc)
+        
+        }
+    }
+    
     func displayAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func makeCurrencyQuoteRequest() {
-        CurrencyLayer().requestCurrencyQuotes() { success, newQuotes, error in
+    func makeCurrencyQuoteRequest(baseCurrency: String = "USD") {
+        CurrencyLayer().requestCurrencyQuotes(baseCurrency) { success, newQuotes, error in
             if success {
                 self.quotes = newQuotes
                 

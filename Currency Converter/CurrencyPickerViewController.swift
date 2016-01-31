@@ -8,28 +8,37 @@
 
 import UIKit
 
-//extension Dictionary {
-//    subscript(i:Int) -> (key:Key,value:Value) {
-//        get {
-//            return self[self.startIndex.advancedBy(i)]
-//        }
-//    }
-//}
-
 class CurrencyPickerViewController: UITableViewController {
     
-//    @IBOutlet weak var currencyPlaceholder: UILabel!
     var quotes: [Currency]?
-    
-//    @IBOutlet weak var goBackButton: UIBarButtonItem!
+    var baseCurrency: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "goBack:")
+        self.navigationItem.leftBarButtonItem = backButton
+
     }
     
-    func buttonMethod() {
-        print("Perform action")
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "exitSegue" {
+//            let conversionVC = segue.destinationViewController as? ConversionViewController
+            if let cell = sender as? UITableViewCell {
+                baseCurrency = (cell.textLabel?.text)!
+//                conversionVC?.makeCurrencyQuoteRequest()
+            }
+        }
     }
+    
+    func goBack(sender:UIButton) {
+        //Initiate newViewController this way
+//        let conversionVC = self.storyboard?.instantiateViewControllerWithIdentifier("ConversionController") as?
+//        let conversionVC = self.storyboard?.("ConversionController") as?         ConversionViewController
+//        self.navigationController?.pushViewController(conversionVC!, animated: true)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -48,9 +57,7 @@ class CurrencyPickerViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        let camera = UIBarButtonItem(barButtonSystemItem: .Camera, target: self, action: Selector("btnOpenCamera"))
-        self.navigationItem.rightBarButtonItem = camera
+        super.viewDidAppear(animated)
     }
     
-
 }
