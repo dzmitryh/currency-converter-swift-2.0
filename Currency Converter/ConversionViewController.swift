@@ -27,7 +27,6 @@ class ConversionViewController: UIViewController {
     @IBOutlet var inrOutputLabel: UILabel!
     
     @IBOutlet weak var baseCurrencyChangeButton: UIButton!
-//    @IBOutlet weak var changeInputCurrencyLabel: UILabel!
     
     var defaults = {
         return NSUserDefaults.standardUserDefaults()
@@ -38,20 +37,11 @@ class ConversionViewController: UIViewController {
     var enableConversion = false
 
     var calculator: Calculator
-    
-//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-//        self.calculator = Calculator()
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//    }
 
     required init?(coder aDecoder: NSCoder) {
         self.calculator = Calculator()
         super.init(coder: aDecoder)
     }
-    
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     override func viewDidLoad() {
         makeCurrencyQuoteRequest()
@@ -74,10 +64,8 @@ class ConversionViewController: UIViewController {
     }
     
     @IBAction func unwindToConvertionController(sender: UIStoryboardSegue) {
-        print("it works!")
         if let bc = (sender.sourceViewController as? CurrencyPickerViewController)?.baseCurrency    {
             self.makeCurrencyQuoteRequest(bc)
-        
         }
     }
     
@@ -99,16 +87,6 @@ class ConversionViewController: UIViewController {
                     self.stopActivityIndicator()
                     self.refresh.enabled = true
                 }
-                
-                //Persist quotes using NSUserDefaults
-                //TODO
-//                self.saveQuotesToUserDefaults(self.quotes["USDEUR"] as! Float, key: "EUR")
-//                self.saveQuotesToUserDefaults(self.quotes["USDGBP"] as! Float, key: "GBP")
-//                self.saveQuotesToUserDefaults(self.quotes["USDINR"] as! Float, key: "INR")
-                
-//                self.saveQuotesToUserDefaults(self.quotes["EUR"] as! Float, key: "EUR")
-//                self.saveQuotesToUserDefaults(self.quotes["USD"] as! Float, key: "USD")
-//                self.saveQuotesToUserDefaults(self.quotes["RUB"] as! Float, key: "RUB")
                 self.saveQuotesToUserDefaults(self.quotes)
             }
             else {
@@ -118,13 +96,9 @@ class ConversionViewController: UIViewController {
                     self.refresh.enabled = true
                 }
                 self.quotes = [
-                    //TODO
-//                    "USDEUR": self.accessQuotesFromUserDefaults("EUR"),
-//                    "USDGBP": self.accessQuotesFromUserDefaults("GBP"),
-//                    "USDINR": self.accessQuotesFromUserDefaults("INR")
-                    "BRLEUR": self.accessQuotesFromUserDefaults("EUR"),
-                    "BRLUSD": self.accessQuotesFromUserDefaults("USD"),
-                    "BRLRUB": self.accessQuotesFromUserDefaults("RUB")
+                    "EUR": self.accessQuotesFromUserDefaults("EUR"),
+                    "USD": self.accessQuotesFromUserDefaults("USD"),
+                    "RUB": self.accessQuotesFromUserDefaults("RUB")
                 ]
             }
             self.enableConversion = true
@@ -143,11 +117,6 @@ class ConversionViewController: UIViewController {
     }
     
     func removeAllKeysForUserDefaults() {
-        //TODO
-//        defaults.removeObjectForKey("EUR")
-//        defaults.removeObjectForKey("GBP")
-//        defaults.removeObjectForKey("INR")
-
         defaults.removeObjectForKey("EUR")
         defaults.removeObjectForKey("USD")
         defaults.removeObjectForKey("RUB")
@@ -161,12 +130,6 @@ class ConversionViewController: UIViewController {
         }
         else {
             switch(key) {
-                //TODO
-//                case "GBP": return 0.6427
-//                
-//                case "EUR": return 0.902
-//                
-//                case "INR": return 64.2234
                 
                 case "EUR": return 0.2249
                     
@@ -282,22 +245,11 @@ class ConversionViewController: UIViewController {
         }
     }
     
-    func handleInputCurrencyChangeTap(gestureRecognizer: UIGestureRecognizer) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewControllerWithIdentifier("next")
-//        self.presentViewController(vc, animated: true, completion: nil)
-        print("change currency label has been clicked!")
-        let controller = storyboard?.instantiateViewControllerWithIdentifier("CurrencyPicker") as! CurrencyPickerViewController
-//        controller.quotes = self.quotes
-        
-//        var currencyArr = [Currency]()
-//        for (key, value) in self.quotes {
-//            currencyArr.append(Currency(name: key, rate: value))
-//        }
-        
-        controller.quotes = self.quotes.map { Currency(name: "\($0)", rate: "\($1)") }
-        self.presentViewController(controller, animated: true, completion: nil)
-    }
+//    func handleInputCurrencyChangeTap(gestureRecognizer: UIGestureRecognizer) {
+//        let controller = storyboard?.instantiateViewControllerWithIdentifier("CurrencyPicker") as! CurrencyPickerViewController
+//        controller.quotes = self.quotes.map { Currency(name: "\($0)", rate: "\($1)") }
+//        self.presentViewController(controller, animated: true, completion: nil)
+//    }
     
     @IBAction func refreshRates(sender: UIButton) {
         makeCurrencyQuoteRequest()
@@ -344,14 +296,12 @@ class ConversionViewController: UIViewController {
             let result = calculator.doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
             calculator.tempResult = result
             assignInputLableNewValue(result)
-//            doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
             
         } else if let operationVar = calculator.operation, valueTwo = calculator.secondNumber, valueOne = calculator.firstNumber {
             // do the calculation
             let result = calculator.doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
             calculator.tempResult = result
             assignInputLableNewValue(result)
-//            doCalculation(operationVar, valueOne: valueOne, valueTwo: valueTwo)
         }
     }
     
@@ -385,17 +335,19 @@ class ConversionViewController: UIViewController {
     
     func convertToCurrencies() {
         let usdVal = (usdInputLabel.text! as NSString).floatValue
-//        let euroVal = usdVal * (quotes["USDEUR"] as! Float)
-        let euroVal = usdVal * (quotes["EUR"] as! Float)
-        eurOutputLabel.text = String(format: "%.2f", euroVal)
-        
-//        let gbpVal = usdVal * (quotes["USDGBP"] as! Float)
-//        let gbpVal = usdVal * (quotes["USD"] as! Float)
-//        gbpOutputLabel.text = String(format: "%.2f", gbpVal)
-        
-//        let inrVal = usdVal * (quotes["USDINR"] as! Float)
-        let inrVal = usdVal * (quotes["RUB"] as! Float)
-        inrOutputLabel.text = String(format: "%.2f", inrVal)
+        eurOutputLabel.text = calculateCurrencyAmount("EUR", plainValue: usdVal)
+        gbpOutputLabel.text = calculateCurrencyAmount("GBP", plainValue: usdVal)
+        inrOutputLabel.text = calculateCurrencyAmount("RUB", plainValue: usdVal)
+    }
+    
+    func calculateCurrencyAmount(quoteKey: String, plainValue: Float) -> String {
+        var currencyVal: Float
+        if let _ = quotes[quoteKey] {
+            currencyVal = plainValue * (quotes[quoteKey] as! Float)
+        } else {
+            currencyVal = plainValue * 1
+        }
+        return String(format: "%.2f", currencyVal)
     }
     
 }

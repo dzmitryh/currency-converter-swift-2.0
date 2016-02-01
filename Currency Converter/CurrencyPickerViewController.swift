@@ -23,22 +23,15 @@ class CurrencyPickerViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "exitSegue" {
-//            let conversionVC = segue.destinationViewController as? ConversionViewController
             if let cell = sender as? UITableViewCell {
                 baseCurrency = (cell.textLabel?.text)!
-//                conversionVC?.makeCurrencyQuoteRequest()
             }
         }
     }
     
     func goBack(sender:UIButton) {
-        //Initiate newViewController this way
-//        let conversionVC = self.storyboard?.instantiateViewControllerWithIdentifier("ConversionController") as?
-//        let conversionVC = self.storyboard?.("ConversionController") as?         ConversionViewController
-//        self.navigationController?.pushViewController(conversionVC!, animated: true)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
