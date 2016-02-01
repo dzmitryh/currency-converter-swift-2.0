@@ -336,7 +336,7 @@ class ConversionViewController: UIViewController {
     func convertToCurrencies() {
         let usdVal = (usdInputLabel.text! as NSString).floatValue
         eurOutputLabel.text = calculateCurrencyAmount("EUR", plainValue: usdVal)
-        gbpOutputLabel.text = calculateCurrencyAmount("GBP", plainValue: usdVal)
+        gbpOutputLabel.text = calculateCurrencyAmount("USD", plainValue: usdVal)
         inrOutputLabel.text = calculateCurrencyAmount("RUB", plainValue: usdVal)
     }
     
