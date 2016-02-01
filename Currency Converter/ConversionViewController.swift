@@ -9,6 +9,10 @@
 
 import UIKit
 
+struct ConversionConstants {
+    static let BaseCurrency = "BC"
+}
+
 class ConversionViewController: UIViewController {
     
     @IBOutlet var refresh: UIButton!
@@ -37,14 +41,18 @@ class ConversionViewController: UIViewController {
     var enableConversion = false
 
     var calculator: Calculator
-
+    
     required init?(coder aDecoder: NSCoder) {
         self.calculator = Calculator()
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
-        makeCurrencyQuoteRequest()
+        if let bc = defaults.stringForKey(ConversionConstants.BaseCurrency) {
+            makeCurrencyQuoteRequest(bc)
+        } else {
+            makeCurrencyQuoteRequest()
+        }
         activityindicator.startAnimating()
         refresh.enabled = false
 //        let changeInputCurrencyRecognizer = UITapGestureRecognizer(target: self, action: "handleInputCurrencyChangeTap:")
@@ -66,6 +74,7 @@ class ConversionViewController: UIViewController {
     @IBAction func unwindToConvertionController(sender: UIStoryboardSegue) {
         if let bc = (sender.sourceViewController as? CurrencyPickerViewController)?.baseCurrency    {
             self.makeCurrencyQuoteRequest(bc)
+            self.defaults.setObject(bc, forKey: ConversionConstants.BaseCurrency)
         }
     }
     
