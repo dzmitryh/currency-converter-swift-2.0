@@ -66,10 +66,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Conversion View Controller-->
+        <!--Convert-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="ConversionController" id="vXZ-lx-hvc" customClass="ConversionViewController" customModule="Currency_Converter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConversionController" title="Convert" id="vXZ-lx-hvc" customClass="ConversionViewController" customModule="Currency_Converter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -78,7 +78,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="17" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtj-7h-QD7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="17" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtj-7h-QD7">
                                 <rect key="frame" x="33" y="40" width="473" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Qb7-vC-PPD"/>
@@ -87,7 +87,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TCh-CN-hnc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TCh-CN-hnc">
                                 <rect key="frame" x="28" y="73" width="177" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="177" id="5Ea-OS-UrH"/>
@@ -96,19 +96,19 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hhk-pJ-hBv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hhk-pJ-hBv">
                                 <rect key="frame" x="211" y="73" width="177" height="60"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D8S-Bj-ZyC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D8S-Bj-ZyC">
                                 <rect key="frame" x="395" y="73" width="177" height="60"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="EUR" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhF-eL-086">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhF-eL-086">
                                 <rect key="frame" x="28" y="122" width="177" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="6Ff-Bo-beB"/>
@@ -117,19 +117,19 @@
                                 <color key="textColor" red="1" green="0.56320891009999996" blue="0.44329970330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="USD" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5T-3t-Oco">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5T-3t-Oco">
                                 <rect key="frame" x="211" y="121" width="177" height="28"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="RUB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azS-W2-lq2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RUB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azS-W2-lq2">
                                 <rect key="frame" x="395" y="122" width="177" height="28"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZN-oO-yMZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZN-oO-yMZ">
                                 <rect key="frame" x="28" y="171" width="130" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.5996201657458563" blue="1" alpha="0.089578919491525424" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -145,7 +145,7 @@
                                     <action selector="appendDigit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="khu-jn-AZ1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qws-Ef-Y90">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qws-Ef-Y90">
                                 <rect key="frame" x="166" y="171" width="130" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.5996201657458563" blue="1" alpha="0.089578919491525424" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="31"/>
@@ -157,7 +157,7 @@
                                     <action selector="appendDigit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eVq-QC-Fvv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfM-d1-GmH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfM-d1-GmH">
                                 <rect key="frame" x="304" y="171" width="130" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.5996201657458563" blue="1" alpha="0.089578919491525424" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="31"/>
@@ -169,7 +169,7 @@
                                     <action selector="appendDigit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SQZ-l0-GUp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-UC-Tcb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-UC-Tcb">
                                 <rect key="frame" x="28" y="245" width="130" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.5996201657458563" blue="1" alpha="0.089578919491525424" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="31"/>
@@ -181,7 +181,7 @@
                                     <action selector="appendDigit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vWk-fI-geC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rl-Mi-eEV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rl-Mi-eEV">
                                 <rect key="frame" x="166" y="245" width="130" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.5996201657458563" blue="1" alpha="0.089578919491525424" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="31"/>
@@ -193,7 +193,7 @@
                                     <action selector="appendDigit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wc4-ch-I3V"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UW-EF-SgM">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UW-EF-SgM">
                                 <rect key="frame" x="304" y="245" width="130" height="65"/>
                                 <color key="backgroundColor" red="0.0" green="0.5996201657458563" blue="1" alpha="0.089578919491525424" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -208,7 +208,7 @@
                                     <action selector="appendDigit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EC7-Pg-JZQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YY6-T6-RhQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YY6-T6-RhQ">
                                 <rect key="frame" x="28" y="318" width="130" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.5996201657458563" blue="1" alpha="0.089578919491525424" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -223,7 +223,7 @@
                                     <action selector="appendDigit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="diQ-ft-pRf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWx-ne-g5u">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWx-ne-g5u">
                                 <rect key="frame" x="166" y="318" width="130" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.5996201657458563" blue="1" alpha="0.089578919491525424" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="31"/>
@@ -235,7 +235,7 @@
                                     <action selector="appendDigit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vmr-tB-MDT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEV-6V-b0G">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEV-6V-b0G">
                                 <rect key="frame" x="304" y="318" width="130" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.5996201657458563" blue="1" alpha="0.089578919491525424" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="31"/>
@@ -247,7 +247,7 @@
                                     <action selector="appendDigit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="P6a-yB-NxD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BrP-Mx-5ZE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BrP-Mx-5ZE">
                                 <rect key="frame" x="166" y="393" width="130" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.5996201657458563" blue="1" alpha="0.089578919491525424" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="31"/>
@@ -259,7 +259,7 @@
                                     <action selector="disableDecimalOnFirstUse:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Khg-al-Uyq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ov7-tZ-n01">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ov7-tZ-n01">
                                 <rect key="frame" x="514" y="171" width="64" height="139"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.83057468220338981" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
@@ -271,7 +271,7 @@
                                     <action selector="allClear:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TT8-7i-tDQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47Z-5d-teP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47Z-5d-teP">
                                 <rect key="frame" x="442" y="171" width="64" height="66"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -286,7 +286,7 @@
                                     <action selector="setDivision:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ieW-iM-itC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDS-ub-fbC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDS-ub-fbC">
                                 <rect key="frame" x="442" y="244" width="64" height="66"/>
                                 <color key="backgroundColor" red="1" green="0.46715296960000002" blue="0.0" alpha="0.80146539549999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -298,7 +298,7 @@
                                     <action selector="setMultiplication:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5Eq-2V-AOU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MC6-mH-whs">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MC6-mH-whs">
                                 <rect key="frame" x="442" y="318" width="65" height="66"/>
                                 <color key="backgroundColor" red="1" green="0.46715296960000002" blue="0.0" alpha="0.80146539549999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="28"/>
@@ -310,7 +310,7 @@
                                     <action selector="setSubtraction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Yfj-Wa-KeF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jS-6e-b3N">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jS-6e-b3N">
                                 <rect key="frame" x="442" y="393" width="65" height="66"/>
                                 <color key="backgroundColor" red="1" green="0.46715296960000002" blue="0.0" alpha="0.80146539549999996" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="28"/>
@@ -322,7 +322,7 @@
                                     <action selector="setAddition:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xhU-od-yJ4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgR-qG-PUK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgR-qG-PUK">
                                 <rect key="frame" x="304" y="394" width="130" height="65"/>
                                 <color key="backgroundColor" red="1" green="0.46715296960000002" blue="0.0" alpha="0.80146539549999996" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -337,7 +337,7 @@
                                     <action selector="calculateResult:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="g4R-hF-LeV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veR-Rz-vEl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veR-Rz-vEl">
                                 <rect key="frame" x="443" y="468" width="135" height="70"/>
                                 <color key="backgroundColor" red="0.0" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
@@ -348,7 +348,7 @@
                                     <action selector="saveConversion:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="flO-9Q-hk8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho8-yn-K4y">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho8-yn-K4y">
                                 <rect key="frame" x="28" y="393" width="130" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.5996201657458563" blue="1" alpha="0.089578919491525424" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="31"/>
@@ -360,8 +360,8 @@
                                     <action selector="appendDigit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="USR-PE-Ktd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="she-xk-2U8">
-                                <rect key="frame" x="560" y="20" width="20" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="she-xk-2U8">
+                                <rect key="frame" x="562" y="20" width="20" height="22"/>
                                 <state key="normal" image="Refresh">
                                     <color key="titleColor" red="0.60115131580000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -370,11 +370,11 @@
                                     <action selector="refreshRates:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="j04-9w-PZQ"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6rE-ek-OSc">
-                                <rect key="frame" x="532" y="20" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6rE-ek-OSc">
+                                <rect key="frame" x="534" y="20" width="20" height="20"/>
                                 <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kc-tT-AHy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kc-tT-AHy">
                                 <rect key="frame" x="28" y="468" width="406" height="70"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
@@ -386,26 +386,26 @@
                                     <action selector="doConvert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="j04-d2-Mxj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cge-iR-Ybx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cge-iR-Ybx">
                                 <rect key="frame" x="20" y="20" width="68" height="28"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAd-Me-zcP" userLabel="CurrencyChangeButton">
-                                <rect key="frame" x="522" y="40" width="58" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAd-Me-zcP" userLabel="CurrencyChangeButton">
+                                <rect key="frame" x="522" y="40" width="60" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="YFx-31-41B"/>
+                                    <constraint firstAttribute="width" constant="60" id="YFx-31-41B"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
-                                <state key="normal" title="BRL">
+                                <state key="normal" title="NOK">
                                     <color key="titleColor" red="0.1647058824" green="0.45098039220000002" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="w2V-b9-Fqq" kind="show" identifier="ShowCurrencyChange" id="B3t-t5-tyS"/>
+                                    <segue destination="A47-1a-Jrg" kind="show" identifier="ShowCurrencyChange" id="B3t-t5-tyS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEb-pZ-PBV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEb-pZ-PBV">
                                 <rect key="frame" x="514" y="318" width="64" height="141"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
@@ -600,6 +600,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Convert" image="Convert" selectedImage="Convert" id="Kq3-Dk-j5U"/>
                     <navigationItem key="navigationItem" id="O08-th-mXy"/>
                     <connections>
                         <outlet property="activityindicator" destination="6rE-ek-OSc" id="DSn-22-ohd"/>
@@ -617,7 +618,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1890" y="370"/>
+            <point key="canvasLocation" x="1123" y="356"/>
         </scene>
         <!--History-->
         <scene sceneID="Ei2-v2-SzN">
@@ -991,7 +992,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdJ-5C-NPW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3237" y="384"/>
+            <point key="canvasLocation" x="4861" y="384"/>
         </scene>
         <!--All currencies-->
         <scene sceneID="SJX-US-is4">
@@ -1029,7 +1030,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tm5-fr-d8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Ktt-3B-rj4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2609" y="-60"/>
+            <point key="canvasLocation" x="2721" y="356"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TQT-1k-FqF">
@@ -1042,13 +1043,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Gwc-H4-4sq" kind="relationship" relationship="viewControllers" id="OFl-Oz-00q"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="4C8-uv-y5m"/>
                         <segue destination="ea8-Jo-bF0" kind="relationship" relationship="viewControllers" id="CiV-Yl-Gbc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vto-UO-0wd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="241" y="658"/>
+            <point key="canvasLocation" x="209" y="672"/>
         </scene>
         <!--History-->
         <scene sceneID="oBz-x2-ozf">
@@ -1069,24 +1070,23 @@
             </objects>
             <point key="canvasLocation" x="1123" y="1038"/>
         </scene>
-        <!--Convert-->
-        <scene sceneID="HDi-aS-AUq">
+        <!--Navigation Controller-->
+        <scene sceneID="63N-Fj-eQE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gwc-H4-4sq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Convert" image="Convert" id="Nsw-sN-o38"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A47-1a-Jrg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2PV-Wh-efC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="J8f-ai-Hf5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="UW5-Vb-BrO"/>
+                        <segue destination="w2V-b9-Fqq" kind="relationship" relationship="rootViewController" id="gZ2-Em-eUj"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zOL-ga-xN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RgT-3o-DO1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1135" y="370"/>
+            <point key="canvasLocation" x="1909" y="356"/>
         </scene>
     </scenes>
     <resources>

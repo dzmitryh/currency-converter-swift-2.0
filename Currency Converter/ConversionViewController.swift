@@ -65,9 +65,10 @@ class ConversionViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowCurrencyChange" {
 //            let changeCurrencyVC = segue.destinationViewController as? CurrencyPickerViewController
-//            let navigationVC = segue.destinationViewController as? UINavigationController
-//            let changeCurrencyVC = navigationVC?.viewControllers.first as? CurrencyPickerViewController
-            let changeCurrencyVC = segue.destinationViewController as? CurrencyPickerViewController
+            let navigationVC = segue.destinationViewController as? UINavigationController
+            let changeCurrencyVC = navigationVC?.viewControllers.first as? CurrencyPickerViewController
+            
+//            let changeCurrencyVC = segue.destinationViewController as? CurrencyPickerViewController
             changeCurrencyVC?.quotes = self.quotes.map { Currency(name: "\($0)", rate: "\($1)") }.sort { $0.name < $1.name }
         }
     }
