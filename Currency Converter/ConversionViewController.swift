@@ -26,6 +26,7 @@ class ConversionViewController: UIViewController {
     @IBOutlet var gbpOutputLabel: UILabel!
     @IBOutlet var inrOutputLabel: UILabel!
     
+    @IBOutlet weak var baseCurrencyChangeButton: UIButton!
 //    @IBOutlet weak var changeInputCurrencyLabel: UILabel!
     
     var defaults = {
@@ -86,6 +87,8 @@ class ConversionViewController: UIViewController {
     }
     
     func makeCurrencyQuoteRequest(baseCurrency: String = "USD") {
+        self.baseCurrencyChangeButton.setTitle(baseCurrency, forState: .Normal)
+        
         CurrencyLayer().requestCurrencyQuotes(baseCurrency) { success, newQuotes, error in
             if success {
                 self.quotes = newQuotes
