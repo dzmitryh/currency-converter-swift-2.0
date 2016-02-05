@@ -91,24 +91,32 @@ class ConversionViewController: UIViewController {
             if success {
                 self.quotes = newQuotes
                 
-                self.removeAllKeysForUserDefaults()
+                self.removeAllKeysForUserDefaults(baseCurrency)
                 dispatch_async(dispatch_get_main_queue()) {
                     self.stopActivityIndicator()
                     self.refresh.enabled = true
                 }
-                self.saveQuotesToUserDefaults(self.quotes)
+                self.saveQuotesToUserDefaults(self.quotes, baseCurrency: baseCurrency)
             }
             else {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.displayAlert("Unable to Retrieve Latest Conversion Rates", message: "\(error) Until then, last used conversion rates apply if available, or else conversion rates will default to rates on July 27, 2015.")
+                    self.displayAlert("Unable to Retrieve Latest Conversion Rates", message: "\(error) Until then, last used conversion rates apply if available, or else conversion rates will default to rates on February 03, 2016.")
                     self.stopActivityIndicator()
                     self.refresh.enabled = true
                 }
-                self.quotes = [
-                    "EUR": self.accessQuotesFromUserDefaults("EUR"),
-                    "USD": self.accessQuotesFromUserDefaults("USD"),
-                    "RUB": self.accessQuotesFromUserDefaults("RUB")
-                ]
+
+                if let unwrappedQuoetes = self.accessQuotesDictionaryFromUserDefaults(baseCurrency) {
+                    self.quotes = unwrappedQuoetes
+                } else {
+                    self.quotes = [
+                        "EUR": self.accessQuotesFromUserDefaults("EUR"),
+                        "USD": self.accessQuotesFromUserDefaults("USD"),
+                        "RUB": self.accessQuotesFromUserDefaults("RUB"),
+                        "BRL": self.accessQuotesFromUserDefaults("BRL")
+                    ]
+                    self.displayAlert("Absent rates for \(baseCurrency)", message:"Looks like you haven't \(baseCurrency) rates.. Try again with network connected.")
+                    
+                }
             }
             self.enableConversion = true
         }
@@ -120,16 +128,18 @@ class ConversionViewController: UIViewController {
     }
     
 //    func saveQuotesToUserDefaults(value: Float, key: String) {
-    func saveQuotesToUserDefaults(quotes: [String:AnyObject]) {
+    func saveQuotesToUserDefaults(quotes: [String:AnyObject], baseCurrency: String) {
 //        defaults.setFloat(value, forKey: key)
-        defaults.registerDefaults(quotes)
+//        defaults.registerDefaults(quotes)
+        defaults.setObject(quotes, forKey: "quotes:\(baseCurrency)")
     }
     
-    func removeAllKeysForUserDefaults() {
-        defaults.removeObjectForKey("EUR")
-        defaults.removeObjectForKey("USD")
-        defaults.removeObjectForKey("RUB")
-
+    func removeAllKeysForUserDefaults(baseCurrency: String) {
+        defaults.removeObjectForKey("quotes:\(baseCurrency)")
+    }
+    
+    func accessQuotesDictionaryFromUserDefaults(baseCurrency: String) -> [String: AnyObject]? {
+        return defaults.dictionaryForKey("quotes:\(baseCurrency)")
     }
     
     func accessQuotesFromUserDefaults(key: String) -> Float {
@@ -145,6 +155,8 @@ class ConversionViewController: UIViewController {
                 case "USD": return 0.24372
                     
                 case "RUB": return 19.515
+                
+                case "BRL": return 1
                 
                 default: return 0
             }
@@ -343,10 +355,12 @@ class ConversionViewController: UIViewController {
     }
     
     func convertToCurrencies() {
-        let usdVal = (usdInputLabel.text! as NSString).floatValue
-        eurOutputLabel.text = calculateCurrencyAmount("EUR", plainValue: usdVal)
-        gbpOutputLabel.text = calculateCurrencyAmount("USD", plainValue: usdVal)
-        inrOutputLabel.text = calculateCurrencyAmount("RUB", plainValue: usdVal)
+        if enableConversion {
+            let usdVal = (usdInputLabel.text! as NSString).floatValue
+            eurOutputLabel.text = calculateCurrencyAmount("EUR", plainValue: usdVal)
+            gbpOutputLabel.text = calculateCurrencyAmount("USD", plainValue: usdVal)
+            inrOutputLabel.text = calculateCurrencyAmount("RUB", plainValue: usdVal)
+        }
     }
     
     func calculateCurrencyAmount(quoteKey: String, plainValue: Float) -> String {
